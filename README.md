@@ -28,7 +28,11 @@ and hand off.
 │       │   └── SKILL.md
 │       ├── task-brief/
 │       │   └── SKILL.md
-│       └── task-lifecycle/
+│       ├── task-lifecycle/
+│       │   └── SKILL.md
+│       ├── tmux-agent-master/
+│       │   └── SKILL.md
+│       └── tmux-worker-steward/
 │           └── SKILL.md
 └── docs/
     ├── specs_map/
@@ -62,6 +66,10 @@ Current skills:
 - `task-lifecycle`: move task files through `backlog`, `doing`, `done`, and
   `trash`.
 - `quantified-milestone`: rewrite vague goals into measurable milestones.
+- `tmux-agent-master`: create, register, inspect, and route tmux-backed worker
+  agents.
+- `tmux-worker-steward`: delegate work to tmux workers, supervise progress, and
+  review worker output before trusting it.
 
 ## Task Lifecycle
 
@@ -203,6 +211,16 @@ Example workflow:
 3. Add short `Spec:` comments only at fragile implementation boundaries.
 4. Keep long rationale in task briefs, plans, or knowledge-base docs.
 
+### 6. Coordinate Tmux Worker Agents
+
+Use `tmux-agent-master` when a project has tmux-backed worker agents and needs
+to create, register, inspect, or route work across them.
+
+Use `tmux-worker-steward` as the pair skill when assigning concrete work. The
+master chooses or creates the worker; the steward writes the assignment,
+supervises progress, and reviews the answer before it drives implementation or
+user-facing conclusions.
+
 ## Recommended Workflow
 
 For a typical change:
@@ -213,4 +231,6 @@ For a typical change:
 3. Use `task-lifecycle` to move the task into `doing` when work starts.
 4. Update `docs/specs_map/` if behavior or technical contracts change.
 5. Use `quantified-milestone` when a goal needs clearer completion criteria.
-6. Move the task to `done` when the work is shipped and verified.
+6. Use `tmux-agent-master` and `tmux-worker-steward` when work benefits from
+   supervised tmux-backed worker agents.
+7. Move the task to `done` when the work is shipped and verified.
